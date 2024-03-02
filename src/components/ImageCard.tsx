@@ -1,7 +1,7 @@
 
 import { useState } from 'react'
-import './imagecard.css'
-import { CloseIcon } from '../../assets/icons'
+import './imageGallery.css'
+import { CloseIcon } from '../assets/icons'
 
 
 function ImageCard({urls, alt_description, id, likes} :any) {

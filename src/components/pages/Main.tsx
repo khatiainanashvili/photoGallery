@@ -1,9 +1,9 @@
 
 import { useEffect, useState } from 'react';
-import ImageCard from './ImageCard';
+import ImageCard from '../ImageCard';
 import { fetchData } from '../../data/data';
 import { ImageDataInterface } from '../../interfaces/interfaces';
-import ImagePlaceholder from './ImagePlaceholder';
+import ImagePlaceholder from '../ImagePlaceholder';
 
 function Main({searchQuery, handleSearch, imageData, setImageData, loading} :any) {
   

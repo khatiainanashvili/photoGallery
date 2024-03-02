@@ -11,11 +11,32 @@
 .animated-bg{
     box-shadow:0 2px 10px rgba(0, 0, 0, 0.307);
     overflow: hidden;
-    width: 250px;
-    height: 220px;
+    width: 105px;
+    height: 95px;
     background-image: linear-gradient(to right, #444444 0%, #333333 10%, #444444 20%, #444444 100%);
     background-size: 200% 100%;
     animation: bgPos 1s linear infinite;
+}
+
+.image-card {
+    width: 105px;
+    height: 95px;
+    cursor: pointer;
+    box-shadow:0 2px 10px rgba(0, 0, 0, 0.307);
+    position: relative;
+}
+
+.image-card::before {
+    content: '';
+    width: 100%;
+    height: 100%;
+    box-shadow:0 2px 10px rgba(0, 0, 0, 0.307);
+    overflow: hidden;
+    background-image: linear-gradient(to right, #444444 0%, #333333 10%, #444444 20%, #444444 100%);
+    background-size: 200% 100%;
+    animation: bgPos 1s linear infinite;
+   position: absolute;
+   z-index: -2;
 }
 
 @keyframes bgPos {
@@ -27,14 +48,6 @@
     }
 }
 
-
-.image-card {
-    width: 250px;
-    height: 220px;
-    cursor: pointer;
-    
-}
-
 .image-card img {
     width: 100%;
     height: 100%;
@@ -42,24 +55,6 @@
 }
 .image-card :hover {
     scale: 105%;
-}
-
-.search-form {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-}
-
-.search-Input {
-    width: 40%;
-    color: aliceblue;
-    font-size: 16px;
-    padding: 10px 30px;
-    margin: 40px 0;
-    background: transparent;
-    border: 1px solid rgb(163, 163, 171);
-    border-radius: 10px;
-    font-size: 16px;
 }
 
 .full-image {
@@ -82,7 +77,7 @@
 .full-image.active img {
     object-fit: contain;
     margin: 0 auto;
-     width: auto;
+    width: auto;
     height: 100%;
     z-index: 100;
 
@@ -111,8 +106,9 @@
     display: flex;
     justify-content: center;
     position: relative;
-    height: 90vh;
+    height: 60vh;
     top: 5%;
+
 }
 .image-info-container {
     position: absolute;
@@ -121,25 +117,75 @@
     bottom: 0;
     z-index: 200;
     width: 100%;
-    background-color: rgba(0, 0, 0, 0.623);
+    background-color: rgba(0, 0, 0, 0.666);
+    padding: 10px 0;
 }
 .image-info-container p {
     margin-right: 30px;
 }
-
-.history-button {
-    background-color: rgba(91, 84, 110, 0.51);
-    padding: 10px 20px;
-    border:0;
-    cursor: pointer;
-    color: aliceblue;
-   font-size: 16px;
-   border-radius: 5px;
-   margin: 20px 5px;
-   text-transform: uppercase;
+@media screen and (min-width: 375px){
+    .full-image-container {
+    
+        height: 65vh;
+    }
+  }
+@media screen and (min-width: 424px) {
+  
+    .full-image-container {
+    
+        height: 70vh;
+    }
+    .animated-bg{
+        width: 120px;
+        height: 100px;
+    }
+    .image-card {
+        width: 120px;
+        height: 100px;
+    
+    }
 }
 
-.history-button:hover {
-    scale: 105%;
-    background-color: rgba(91, 84, 110, 0.848);
+@media screen and (min-width: 768px) {
+
+  .navigation-list {
+    justify-content: flex-start;
+  }
+  .search-Input {
+    width: 50%;
+    padding: 15px 35px;
+  }
+
+  .animated-bg{
+    width: 200px;
+    height: 180px;
+}
+.image-card {
+    width: 200px;
+    height: 180px;
+
+}
+}
+@media screen and (min-width: 1024px) {
+    .animated-bg{
+        width: 250px;
+        height: 220px;
+    }
+    .image-card {
+        width: 250px;
+        height: 220px;
+
+    }
+    .full-image.active{
+
+        width: 100vw;
+        height: 100vh;
+       
+    }
+    .full-image-container {
+
+        height: 90vh;
+
+    }
+ 
 }

@@ -1,7 +1,4 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-}
+
 .header nav {
   border-bottom: 2px solid rgb(50, 48, 58);
   margin: 0;
@@ -10,20 +7,23 @@
  
 .navigation-list {
   display: flex;
+  justify-content: center;
   padding: 0;
+  margin: 10px auto;
 }
 
 .navigation-list li {
   list-style: none;
-  
+  border: 1px solid rgb(100, 99, 104) ;
   padding: 5px;
   margin: 5px 10px;
   display: flex;
   justify-content: center;
   align-items: center;
+  border-radius: 10px;
 }
 .navigation-list li:hover {
-  border-top: 1px solid rgb(100, 99, 104);
+  border-top: 1px solid rgb(125, 106, 200);
 }
 .navigation-list li a {
   text-decoration: none;
@@ -37,4 +37,65 @@
 .navigation-list li a svg {
   fill: aliceblue;
   margin-right: 5px;
+}
+
+
+.search-form {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.search-Input {
+  width: 70%;
+  color: aliceblue;
+  font-size: 16px;
+  padding: 10px 30px;
+  margin: 40px 0;
+  background: transparent;
+  border: 1px solid rgb(163, 163, 171);
+  border-radius: 10px;
+  font-size: 16px;
+}
+.history-button-container {
+  display: flex;
+  flex-wrap: wrap;
+  margin: auto 5%;
+}
+.history-button {
+  background-color: rgba(123, 103, 177, 0.51);
+  padding: 10px 20px;
+  border:0;
+  cursor: pointer;
+  color: aliceblue;
+ font-size: 16px;
+ border-radius: 5px;
+ margin: 20px 5px;
+ text-transform: uppercase;
+}
+
+.history-button:hover {
+  scale: 105%;
+  background-color: rgba(133, 103, 216, 0.848);
+}
+@media screen and (min-width: 424px) {
+  
+
+}
+
+@media screen and (min-width: 768px) {
+
+  .navigation-list {
+    justify-content: flex-start;
+  }
+  .search-Input {
+    width: 50%;
+    padding: 15px 35px;
+  }
+}
+@media screen and (min-width: 1024px) {
+  .navigation-list {
+    margin-left: 5%;
+  }
+ 
 }

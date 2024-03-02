@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom"
-import { HistoryIcon, MainIcon } from "../../assets/icons"
+import { HistoryIcon, MainIcon } from "../assets/icons"
 
 
 

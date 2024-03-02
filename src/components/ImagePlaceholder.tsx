@@ -1,4 +1,4 @@
-import './imagecard.css'
+import './imageGallery.css'
 function ImagePlaceholder() {
 
     const renderAnimatedDivs = () => {

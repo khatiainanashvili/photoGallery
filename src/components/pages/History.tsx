@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import { fetchData } from "../../data/data";
-import ImageCard from "./ImageCard";
+import ImageCard from "../ImageCard";
 import { HistoryProps, ImageDataInterface } from "../../interfaces/interfaces";
-import ImagePlaceholder from "./ImagePlaceholder";
+import ImagePlaceholder from "../ImagePlaceholder";
 
 function History({ searchItems } : HistoryProps) {
 
@@ -55,7 +55,7 @@ console.log("searchItem", searchItems);
 
   return (
     <>
-    
+    <div className="history-button-container">
       {   
       searchItems.map((item :string) => (
         
@@ -68,6 +68,7 @@ console.log("searchItem", searchItems);
          { item} 
         </button>
       ))}
+      </div>
       {loading ? <ImagePlaceholder /> :
        <div className="gallery-container">
       {data.map((item : ImageDataInterface) => (
