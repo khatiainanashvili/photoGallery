@@ -8,6 +8,26 @@
 
 }
 
+.animated-bg{
+    box-shadow:0 2px 10px rgba(0, 0, 0, 0.307);
+    overflow: hidden;
+    width: 250px;
+    height: 220px;
+    background-image: linear-gradient(to right, #444444 0%, #333333 10%, #444444 20%, #444444 100%);
+    background-size: 200% 100%;
+    animation: bgPos 1s linear infinite;
+}
+
+@keyframes bgPos {
+    0%{
+        background-position: 50% 0;
+    }
+    100%{
+        background-position: -150% 0;
+    }
+}
+
+
 .image-card {
     width: 250px;
     height: 220px;
@@ -101,7 +121,7 @@
     bottom: 0;
     z-index: 200;
     width: 100%;
-    background-color: rgba(0, 0, 0, 0.251);
+    background-color: rgba(0, 0, 0, 0.623);
 }
 .image-info-container p {
     margin-right: 30px;

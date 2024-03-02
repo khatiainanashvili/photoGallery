@@ -3,8 +3,9 @@ import { useEffect, useState } from 'react';
 import ImageCard from './ImageCard';
 import { fetchData } from '../../data/data';
 import { ImageDataInterface } from '../../interfaces/interfaces';
+import ImagePlaceholder from './ImagePlaceholder';
 
-function Main({searchQuery, handleSearch, imageData, setImageData} :any) {
+function Main({searchQuery, handleSearch, imageData, setImageData, loading} :any) {
   
   const [page, setPage] = useState(1);
   
@@ -49,12 +50,21 @@ function Main({searchQuery, handleSearch, imageData, setImageData} :any) {
         />
 
       </form>
+     {loading 
+     ?
+    
+     <div className="gallery-container">
+      <ImagePlaceholder />
+     </div>
+     
+     :
       <div className='gallery-container'>
         {imageData.map((item :any) => (
           <ImageCard imageData = {imageData} {...item} key = {item.slug}/>
       
         ))}
       </div>
+      } 
     </>
   );
 }

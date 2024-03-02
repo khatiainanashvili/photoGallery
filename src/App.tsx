@@ -15,9 +15,15 @@ function App() {
   const searchQuery:React.MutableRefObject<HTMLInputElement | null | undefined> = useRef<HTMLInputElement>()
   const [imageData, setImageData] = useState<ImageDataInterface[]>([]);
   const [searchItems, setSearchItems] = useState<string[]>([]);
+  const [loading, setLoading] = useState<boolean>(false)
+  const [itemNotFound, setItemNotFound] = useState<boolean>(false)
 
+  
 const handleSearch = async (e :any) => {
-    e.preventDefault();
+  setLoading(true)
+   e.preventDefault();
+    try{
+      
     const searchData = await fetchData(searchQuery.current?.value , 1);
     const query = searchQuery.current?.value || [];
     setSearchItems((prevItems : any) => {
@@ -25,9 +31,16 @@ const handleSearch = async (e :any) => {
       return updatedItems;
   });
     setImageData(searchData);
+    setLoading(false)
+ } 
+ catch (error :any) {
+  setItemNotFound(true)
+  throw new Error(error.message);
+}
   }
 
   const { isLoading, isError } = useQuery(['data', searchQuery.current?.value], () => fetchData(searchQuery.current?.value || 'popular', 1), {
+    
     staleTime: 1000, 
     cacheTime: 60000, 
     initialData: [], 
@@ -35,7 +48,7 @@ const handleSearch = async (e :any) => {
 
 
   if (isLoading) return <div>Loading...</div>;
-  if (isError) return <div>Error fetching data</div>;
+  if (isError ) return <div>Error fetching data</div>;
 
   return (
    <main>
@@ -43,10 +56,19 @@ const handleSearch = async (e :any) => {
         <NavBar />
         <Routes>
             <Route path='/' element={
-            <Main searchQuery = {searchQuery} handleSearch ={handleSearch} imageData ={imageData} setImageData= {setImageData}/>
+            <Main 
+            searchQuery = {searchQuery} 
+            handleSearch ={handleSearch} 
+            imageData ={imageData} 
+            setImageData= {setImageData}
+            loading = {loading}
+            itemNotFound ={itemNotFound}
+            />
             }/>
             <Route path='/history' element={
-            <History searchItems={searchItems} searchQuery = {searchQuery} handleSearch ={handleSearch}/>
+            <History 
+            searchItems={searchItems} 
+           />
             } /> 
         </Routes>
         </header>

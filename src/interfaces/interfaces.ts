@@ -81,4 +81,15 @@ export interface ImageDataInterface {
     [Symbol.iterator](): IterableIterator<ImageDataInterface>
 }
              
+export interface MainComponentProps {
+    searchQuery : string; 
+    handleSearch: (query: string) => void ;
+    imageData : ImageDataInterface[];
+    setImageData : (data: ImageDataInterface[]) => void; 
+    loading: boolean;
+}
              
+
+export interface HistoryProps {
+    searchItems: string[];
+  }

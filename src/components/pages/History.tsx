@@ -1,26 +1,35 @@
 import { useEffect, useState } from "react";
 import { fetchData } from "../../data/data";
 import ImageCard from "./ImageCard";
-import { ImageDataInterface } from "../../interfaces/interfaces";
+import { HistoryProps, ImageDataInterface } from "../../interfaces/interfaces";
+import ImagePlaceholder from "./ImagePlaceholder";
 
-function History({ searchItems } : any) {
-  
+function History({ searchItems } : HistoryProps) {
+
   const [data, setData] = useState<ImageDataInterface[]>([]);
   const [, setSearchHistory] = useState<string[]>([]);
   const [searchValue, setSearchValue] = useState('')
   const [page, setPage] = useState(1);
+  const [loading, setLoading] = useState<boolean>(false)
 
-  
   const handleSelection = async (value: string) => {
-    const searchData = await fetchData(value, 1); 
-    setSearchHistory((prevItems) => {
-      const updatedItems = [...new Set([...prevItems, value])];
-      return updatedItems;
-    });
-    setData(searchData);
-    setSearchValue(value)
-  };
+    setLoading(true)
 
+ try{
+    const searchData = await fetchData(value, 1);
+    if (searchData.length >= 0) {
+      setSearchHistory((prevItems) => {
+        const updatedItems = [...new Set([...prevItems, value])];
+        return updatedItems;
+      });
+      setData(searchData);
+      setSearchValue(value);
+    }
+    setLoading(false)
+  }  catch (error :any) {
+    throw new Error(error.message);
+  }
+  };
   
   useEffect(() => {
     const handleScroll = () => {
@@ -46,22 +55,28 @@ console.log("searchItem", searchItems);
 
   return (
     <>
-      {searchItems.map((item :string) => (
+    
+      {   
+      searchItems.map((item :string) => (
+        
         <button 
         className="history-button"
         key={item} 
         value={item}
         onClick={() => handleSelection(item)}
-        
         >
-          {item}
+         { item} 
         </button>
       ))}
-      <div className="gallery-container">
+      {loading ? <ImagePlaceholder /> :
+       <div className="gallery-container">
       {data.map((item : ImageDataInterface) => (
         <ImageCard key={item.slug} {...item} />
       ))}
       </div>
+      
+      }
+     
     </>
   );
 }
