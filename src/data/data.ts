@@ -12,7 +12,7 @@ export   const fetchData = async (title : string | undefined, pageNumber: number
     console.log("results",data);
     return data.results;
   } catch (error :any) {
-    throw new Error(error.message);
+    console.error("An error occurred while fetching data:", error);
   }
 }; 
 
