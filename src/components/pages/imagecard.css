@@ -1,0 +1,125 @@
+.gallery-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    flex-wrap: wrap;
+    gap: 20px;
+
+}
+
+.image-card {
+    width: 250px;
+    height: 220px;
+    cursor: pointer;
+    
+}
+
+.image-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.image-card :hover {
+    scale: 105%;
+}
+
+.search-form {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.search-Input {
+    width: 40%;
+    color: aliceblue;
+    font-size: 16px;
+    padding: 10px 30px;
+    margin: 40px 0;
+    background: transparent;
+    border: 1px solid rgb(163, 163, 171);
+    border-radius: 10px;
+    font-size: 16px;
+}
+
+.full-image {
+    display: none;
+}
+
+.full-image.active{
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    background-color: rgba(0, 0, 0, 0.244);
+    margin: 0;
+    padding: 0;
+    top: 0;
+    z-index: 100;
+}
+.full-image.active img {
+    object-fit: contain;
+    margin: 0 auto;
+     width: auto;
+    height: 100%;
+    z-index: 100;
+
+}
+.full-image-container > button {
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(75, 68, 85, 0.61);
+    fill: aliceblue;
+    border: 1px solid rgb(255, 255, 255);
+    border-radius: 5px;
+    padding: 5px;
+    cursor: pointer;
+    position: absolute;
+    right: 2%;
+    top: 2%;
+    z-index: 250;
+}
+.full-image.active button:hover {
+    background: rgba(98, 96, 101, 0.484);
+    scale: 105%;
+}
+.full-image-container {
+    display: flex;
+    justify-content: center;
+    position: relative;
+    height: 90vh;
+    top: 5%;
+}
+.image-info-container {
+    position: absolute;
+    display: flex;
+    justify-content: flex-end;
+    bottom: 0;
+    z-index: 200;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.251);
+}
+.image-info-container p {
+    margin-right: 30px;
+}
+
+.history-button {
+    background-color: rgba(91, 84, 110, 0.51);
+    padding: 10px 20px;
+    border:0;
+    cursor: pointer;
+    color: aliceblue;
+   font-size: 16px;
+   border-radius: 5px;
+   margin: 20px 5px;
+   text-transform: uppercase;
+}
+
+.history-button:hover {
+    scale: 105%;
+    background-color: rgba(91, 84, 110, 0.848);
+}
