@@ -23,10 +23,7 @@ function ImageCard({urls, alt_description, id, likes, width, height } :any) {
             <button onClick={() => setShowModal(false) }> <CloseIcon /> </button>
             <img src={urls.full} alt={alt_description} key={id}/>
             <div className="image-info-container">
-              {/* დავალების მიხედვით ამ ორი მონაცემების ნაცვლად, ("height" და  "width") უნდა ყოფილიყო 
-              ნახვების და გადმოწერების რაოდენობა 
-              (postman-შიც ვნახე და საკმაოდ დარწმუნებული ვარ, რომ არც აქვს). 
-              მათ ნაცვლად გამოვიყენე სხვა რიცხვითი მონაცემები*/}
+      
              <p>⤵ <span>{width}</span></p>
              <p>👁 <span>{height}</span></p>
             
