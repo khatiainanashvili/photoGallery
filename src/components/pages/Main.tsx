@@ -17,7 +17,7 @@ function Main({searchQuery, handleSearch, imageData, setImageData, loading} :any
       )  {
         fetchData(searchQuery.current?.value || "popular", page + 1).then(newData => {
           setPage(prevPage => prevPage + 1);
-          setImageData((prevData: ImageDataInterface) => [...prevData, ...newData]);
+          setImageData((prevData: ImageDataInterface[]) => [...prevData, ...newData]);
         });
       }
     };

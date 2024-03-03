@@ -5,9 +5,10 @@ import NavBar from './components/NavBar'
 import Main from './components/pages/Main'
 import History from './components/pages/History';
 import { useRef, useState } from 'react';
-import { useQuery } from 'react-query';
 import { fetchData } from './data/data';
 import { ImageDataInterface } from './interfaces/interfaces';
+import { useQuery } from 'react-query';
+
 
              
 
@@ -40,12 +41,10 @@ const handleSearch = async (e :any) => {
   }
 
   const { isLoading, isError } = useQuery(['data', searchQuery.current?.value], () => fetchData(searchQuery.current?.value || 'popular', 1), {
-    
-    staleTime: 1000, 
-    cacheTime: 60000, 
-    initialData: [], 
+    staleTime: Infinity,
+    cacheTime: Infinity,
   });
-
+  
 
   if (isLoading) return <div>Loading...</div>;
   if (isError ) return <div>Error fetching data</div>;
