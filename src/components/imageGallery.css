@@ -64,19 +64,20 @@
 .full-image.active{
     display: flex;
     justify-content: center;
-    align-items: flex-start;
+    align-items: center;
     width: 100vw;
     height: 100vh;
     position: fixed;
     background-color: rgba(0, 0, 0, 0.244);
     margin: 0;
     padding: 0;
-    top: 0;
+    top: -2%;
     z-index: 100;
 }
 .full-image.active img {
     object-fit: contain;
     margin: 0 auto;
+    max-width: 95vw;
     width: auto;
     height: 100%;
     z-index: 100;
@@ -106,7 +107,7 @@
     display: flex;
     justify-content: center;
     position: relative;
-    height: 60vh;
+    height: auto;
     top: 5%;
 
 }
@@ -123,18 +124,10 @@
 .image-info-container p {
     margin-right: 30px;
 }
-@media screen and (min-width: 375px){
-    .full-image-container {
-    
-        height: 65vh;
-    }
-  }
+
 @media screen and (min-width: 424px) {
   
-    .full-image-container {
-    
-        height: 70vh;
-    }
+  
     .animated-bg{
         width: 120px;
         height: 100px;
@@ -147,6 +140,10 @@
 }
 
 @media screen and (min-width: 768px) {
+    .full-image-container {
+    
+        max-height: 99vh;
+    }
 
   .navigation-list {
     justify-content: flex-start;
